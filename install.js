@@ -29,7 +29,7 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "uv pip install gradio devicetorch",
-          "{{gpu === 'nvidia' ? 'pip install nvidia-pyindex' : ''}},
+          "{{gpu === 'nvidia' ? 'pip install nvidia-pyindex' : ''}}",
           "uv pip install -r {{platform === 'darwin' ? 'requirements-mac.txt' : 'requirements.txt'}}"
         ]
       }
