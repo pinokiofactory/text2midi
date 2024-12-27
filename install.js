@@ -5,7 +5,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/AMAAI-Lab/Text2midi app",
+          "git clone https://github.com/peanutcocktail/Text2midi app",
         ]
       }
     },
@@ -29,8 +29,14 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "uv pip install gradio devicetorch",
-          "uv pip install -r requirements.txt"
+          "uv pip install -r {{platform === 'darwin' ? 'requirements-mac.txt' : 'requirements.txt'}}"
         ]
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        "message": "huggingface-cli download amaai-lab/text2midi --local-dir app/ckpt"
       }
     },
     {
